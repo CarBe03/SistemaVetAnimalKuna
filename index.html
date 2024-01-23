@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sistema de Veterinaria AnimalKuna</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+   
+    <!-- <link href="public/CSS/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"> -->
+    <!--Iconos de Bootstrap-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<!--Jquery-->
+<script src="//code.jquery.com/jquery-3.7.1.min.js"></script>
+
+</head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-info">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHCBUUEhgVFhUZGRgaEhESEhISEhIaHBgdGBUZGhgUGBgcIS4lHB4rHxgYJjgmKy8xNTU1GiQ7QDszPy40NTEBDAwMEA8QHhISHjQjISExNDQ0NDQ0NDQ0NDE0NDQ0NDQ0NDQ0NDQ0MTQ0NDQ0NDQ0ND80NDQxNDQ0MTQ0NDQ0NP/AABEIAMgAzQMBIgACEQEDEQH/xAAcAAABBAMBAAAAAAAAAAAAAAAABAUGBwEDCAL/xABMEAACAQMCAgYFCAUJBQkAAAABAgMABBEFEgYhBxMiMUFRMkJSYXEUYnKBkqGiwiOCkbLBM0NEY3Sx0dLhFSRkc7MWJVODk6Pi8PH/xAAaAQACAwEBAAAAAAAAAAAAAAAAAQIDBAUG/8QAKBEAAgIBBAIBAwUBAAAAAAAAAAECAxEEEiExQVEUBRNhIiMyM5Fx/9oADAMBAAIRAxEAPwC5qKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKAMVmvJNV1xV0nQW5KW4E0g5Eg9hT9KpQrlN4igLAlkCqWYgADJYnAA+NQ7WekyxgyquZm9mAbh9vuqlNe4lur05nlZlzlY1O1B+pTNXQq+n+ZsRaGodME7cobdEHg0js5+6o7c9I2pP/AEjZ9CNFqI0ZrWtNTHwA+Nxdfn+mT/VK4oXi2/HdeT/XK5pizRmnsp9ICW23SHqSf0kt7njjapDp/S/cLymhRx5oxQ1WOazSenpl4A6A0bpOsZ8K7NC2O6UYX7dTSCZXUMjBlIyrKQQR7iK5Lp10XiG5s23QSsnPJTOUb4oeVZbPp67gwOpqKrThXpRhmxHcgQv3CTPYb/LVjK4YZByCMgjmCK5065QeJIZuoooqIBRRRQAUUUUAFFFFABRRRQBikeoahHbxtJKwRFGWZjRqV8lvG0sjBUVSzMa54414uk1CXxSFCeqi/M3m1XUUStl+BMcuNekCW8LRQ5jg8u5pPpVBaK32do80ixxIzuxwqIMk12YxhRHgDRmnLRtCubtttvC7+BZRhV+k55CrU4T6KUTbJene/eIFPYX6R9arNtrdI0CIqqoGFVFCqB7gKxXa7xACmtK6Hpm53E6p5pEu81LbLoo05B21kkPz5GH3JirAorFK6cu2GCKp0f6Yv9Ej+vef41l+AdNP9Ej+oMP41KaKr3S9jIDedFOnOOwskZ845WP7+6otq3Q7IvO2nV/JJl2n7S1c9FWRunHpgcs6xw7dWZxcQOgzgPjch+DrkU1A11rNErqUYBlIwysAQR5EVWvFnRXDKGktMRP39UfQb/LWynXNcSEUpUz4M48msSEfMlv3GMntJ9A1F9RsJbeQxTIyOO9WH4gfEGklbnGF8fYHVWkarFdRLNCwZGHIjwPiCPA041zNwjxTNp825O1GxHXRE8mH8GrofR9VjuoVmibcjDIPiD4qR4EVx76JVS/A0OdFFFUAFFFFABRRRQBisE1mq86V+Jfk9v8AJ0P6SYMCR3qnrNUoQc5KKAgPSVxcbybqYm/QRt4d0jD1qgtFb7O1eaRIkXc7sERR4lq70IxorwIV6Ho017MsMK5Y82Y+ii+Lua6E4R4Sg0+Pag3Ow/STMO0x/gKODOF00+3CDtSNhppPFm/wFSWuRqL3ZLjoZmiiiswBWmRgqlicABmYnuA7ya3VomiDoytzDKysPMEYNJgiLjpAsvbb49U+DSiHjWxc4E4yTgApIP4VT9/amGV4m70d0+O1uy1LNEt8sXPq8l+NZLL3BNmuFEZF0W2sQOwVZFLHuUHmacNwqA8HQbrgt7EZI+LNWviS6YXbFXKlVRAVZh6u781Qjq2obpIi6E57YssSiqkTjq5gkZH2yoD3MNrAe4rUr0njy2mKo+6JzgAOOyT7IcVrhbGayiqVUo9jjxTwxBfx7JVwwHYlUdpD7q554j0GaxnMMo+cjj0XX2hXUtMPFXDkd9btE4w2C0cmMlG9oVsovlXL8FZzFUx6POLDYz7XP6CRgJB7B8JBUa1PTpLaZ4JV2ujFWHgfJh7iOYpHXYlGN0PwxHW0bhgCCCCAQQcgjwrbVY9EHEvWwm0kbtxLmI+LJ/pVnVwbIOEnFjM0UUVEAooooA0ySBQWJwACST3ADvrmTizWTe3ck/qltkY8kXktXX0p6t8n05wvpSnqF+D+n+Guea6X0+rubEwq5uh/hnYhvpF7bjbbg+Ces/xaqr0DSmurqK3X13VGYeC97t9QrqG2t0jjWNAAqKqKo7gFGAKevu6ggFNFFFcwYUUUUAYrFZpJe3yQoXkdUQd7McCk2lywSyVtx/w/K131sUTusiDeUXIVl7PapjNwtuqIQTuOMgeO7tNU11bjYYAhTIYcnk5DHuFRllHLOO/IyFODXJ1NkZSwuTo6dSUf1Eu4JGFmY+aDPuwajF3cb5HY+u7uB7t1PVhP1enyN4u7Iv6yqtRSexVpEl3HKjko7jVc2tij0SrT3SkNGqj9M36p/DTzwZw4buXe4xCjKWPtMvcopwk4Oed436xEV1UurbtwHtKPWyKsvTrBLeNY412qowo/vJ8zW7TJOK/Bnvs8IX0UUVtMhWfS9wx10HyuMfpIl/SY72T/AE76o+utZEVgVYAggqwIyCPEVzJxZo5s7yWD1VfdGT4o3NK6Wgu7gxGjh/VmtLqO4X1HUsvtL3Ov1iuoLW4WRFdTlXVXUjxDDINcmVfnRBq3XaeI2Pagfq/1TzSn9Qq4U0CLAooormDCiiigClem+/3TwQD1I3lYe922j92qtqX9KVxv1WfyQRJ/7amohXd0q21IRZvQppu+4luD/NosSfSertqvuhq1Cadv8ZJ5X+pcJ+Wpjqupx20bSyttUftJ8FUeJNcjUy3WNsaWeEOFZqF8JcQy3tzK2AkMaKqR97Fmb0mPwWpkx5VnUkxuLTwzNYqD41Vp5dpjSMSMIusXOV8MbaXS8TvGjq8D9eqblhjDOHG7AZCB3U9yLJVNYw0xbxJxFFZx7m7TkHq4we0x/gKqLU9UmvJQZGzlsJGOSqPZArVq1zNLK0s+4Ox5lkZQB6qqp8BW/RLfJLnw7Ke8+s1Y77Wos001JDldIAo9xUfVVqW+lwBAFRMbeR2KfrzVcPZuyMdjYwxLbGwBUz4P1MtbIJDzU7FbzA5DNZtHhtqSHqs4TiyJ6NwnqC3ISZ91sHZ3PW5V/op3qafrrhPDpsbKFwHVu9RUwadQMlh+0VX/ABXr0wuQiFkEbZGDzclfHzStV1dUVuaKanZN7YslOu2zmL9EdrchleRI9mm214mEC7bvKMFyrFSS4+iKb+D9UmnuHWVy69WW2lVCg7lp51jRLO7keNivXBVZijAOg7lbHlUao5e+ITjte2ZIIJg6KynIZVdT5hhkV4uLtEwHdFJ9EO6rn4Zpr1W4+Rae7jtGC27OfEomFrny2tbnULnauZZpCXJd18OZOTyUCtqz5M7R0+DVP9OOmc4LkfOgkx9tPzVMujzQriytWjuHDHfujjV2ZY19gE1o6WLXfpcp8UaKQfU4H5qvontsTIs56qyOhe+2XrwnukiyPpRmq3qS9Htz1eqWzecvV/bUpXY1MVKpgdL0UUVwRhRRRQBzFx0+dTuv7Q4+zypgp+45XGp3X9oc0w16Cj+tf8EdH9GabdKth5o7fakc1FL9JtWu2CNtt4mZFkPNfnMB6zGpT0czY0u2z3dWRk/SapHb2iJ6CKoLF2CqACW725eNcC+LcmvyTjLbyM3D+ipZxssZY7mDu7FcsdtOhY1tlj58ufw8K1rGW8OXiTWdRecFjkuxXGOyPgKZ7iXbIEQBh2zIS5LJu5jvOcHyp5I5VE9P0mWG6uHdwySOHRfEf/g5U7cqPAVJNttjy2GGGUEeTBSD9VJ4tKhQ7kjRT5qigD4ClqLSay1GKYusbq5jfq5Qpztbb6NU7dy5LG8PgauJboJEUz2n7IHjj1mrTw7blrcMvPtyBgPCkHFcRE4bwZBg+9aeuDZgts5Y4Cu5JPgNoNZ6ZfvPJOxft5NeoS9TE8jAgKrEZGMn1V+uorxlpryyg7XImSJgYw2dygZWvfE+tm7kCryiU9keLH2qsbTmzAjf1SEfZrS5K6Tin0Qi5UpSx2RLh2yayQO8bu77E2JtYovzyxFSi10+DrnuFQCV1EbyesQNuFP4a99YO8pzYcjnkaTXWpJC6RsO3I2ERef6zGr4RjCOCqcnZLPkXapYrPBJC3ovG8bfBhiqW0DgbUorpZIuqRopGBdpf3lXnhxUg4Y6Txkw342OHKdcF7P649WrC2JOqzRSLkr2JYyrKy+R8GFWFfR6trrcdjjZJjO31W82RvEfeKbuO0DaZdD/AIeU/ZXNMGua9cxSdXNGhXIZWTepI3cmR89lhS7XdS63R7lz3/JZA3hncnJqjVNOxR8k3U1FSfTOd6dOGX23tq3/ABdv/wBRaa6c+GU3X1qPO7t/+oteks/refRUdUCs1gVmvOjCiiigDnLpSt9mqz/PETj/ANNaiFWj03WG24gnHrxtE3xRt35qq6u7pZbqkIvfoiues0soeZjlljx+xx+9Ut0y+DpuAx2yjq3pKytgqaqzoS1LbPNbn10WVfinZarRk08pMZE9F/5VD4nwcfO8K4urjKNrwTjhrDHGQkHl4jwGedbV/wDpNIgxUY7x5Gsm4XHMHzOW5ffVW5dg01wLFOef1Ckk3Nj8a0SarH/4iAe6RaT/AO14MhesTJIVQDnJ+qqZ2xfGSyEGucC2tNvapHu2IibnLvsRV3MfSZsekazcXKpt3es6onLxNbFkBOCccu81FNdEn7Ed9Gjja67h4Aio3aPtu5LeP+Te2lLJ3gP2VrVrGvGSR1ifsKxQsvIll9Jtw8K88IxbrwN7MEuf1nSsbsTswi/bivcyO2cJAyfLAFWjYT7bFX79tvux57UqvJ02uy+Tuv2WZanOmtnTT/Z5R+FqejlmxoWpX6EzVoOrpc28boeRwyeY9pT7waS69D/3lat5hhj6O4/xqN9HFjNFZYcFS0jSxoeTBdq1Yeo2SMySsvajJKNnGN3Jq6M45Rji8PI363pFioa4nto3KjcztGrMa2aJr1vMNkXYIHZj2hMD3Dur1rtm1xaOq+kRuA8yG3YqsUWSOQYV1kV1KrtYMD9Gs9t0oSSxwaaaY2RfPJY/F+mG4jjVMb+uUKzeAKtuqMcexi10yaIHOYrSEHzPWuTU1gLOkUkg2bUMjofVbZjmfAAM1VV0vanuWKIeu7XJU+Cheri/Oa36WtTsjJGaUpJbfBV9SXo+tjJqlqvlL1h+CKXqNVY3QxY7755T3RwkfrOcV29VJRqZAvaiiiuCMbb7V7eAfpZkj/5kiqajN90m2Efou8h8oo2/NiqIbmcnv8WPMmltpZB13bvHBUCq5TwZpXbUSnjjjdNQhES27JtdXSR3XIqCPCMcqfksUHq5+kc0oVAO4AfAYqUNZOGFFlEtVzwNnDN1LbXcVwqN2HUuAMbk7nX6w1Xnccf2S9zO/wBCN/zYqoaKV+qdr3YIvVy8IsO96QU2kRxPnI2s5QCmuXjuVk2GJOaFHJbvPduqIUVkbbF8uzwxwOrP7K/iNA1eQEEbeRBGF8ab6KrVa9A9Za/I/XXFt1Jje68nV1wiDBWtN1xNdSAbpO7djaiL6uPCmeip4K/kWezfBdugwreOcYU17fUZT65HvU7T+Gvekac1xMsKFQzBypcsF7KsfAGtN7bNFI8TEFkcoxHokq3hUftx7wS+RftzueDeupyeYPvK5J+kaetP44uYUEapGVAONyPn7npstNDkktnuFKbELhgxYMdqqeVJ9M02S4kEcYBYqzdo4UBfWJpwhteYrklK+6WE2x9i43mU56tM59IFqdW6RdwAa3I7QYlZfAfVUVg4fncyhArdS7LKQ6gAr5Z7/RprRSxAHiQFHmfVWrt8kR+9bHssy26RLYDnFInwVWrXqPElpc7cXMlvtJyBG43fEioFPpkyOI2icORuRNuSw9oBc0mljZGKspVgcMrBlZT7wajKTksSRZHVWxeS5RrVjMAvyiMgcyrSKob6QbvqhOMdVN3eyzc9pfZGCMYReS05EigjP+vOten1SqlnGR/Ml5RFIUyeflUz4M4xOmo6LArh3Dsxdlfuwq0ja2Q+ov1DH7tam09D5j4H/GpX62VkvSD5WWWfZdK9o/8AKJJH9SsKkVvxvp7jIuox7mfaf2GqDubEKu7d5ciKQ1Sp5L435QUv0uTDFfMZHxqR9Jegw2dyvUnAkV5Gi8E2n1fmmohE+1g3kQajNeCqyPDRIKfeDtLW4ulR13IEkkkXLDPqr97Uwg5/ZkVOujy0Yw3MiDt7Orj5457WP9+2qYrMjLTHMxu4z0WOEpNb46iRQBs5qrf4GmK30+Z0Z0jd1U4Z1XIB9n5x7VWJonDsxsXtbjbjvhKvuKn0vuemrgovHHfQnsvGpZfmtscFh+GrHDLyXSqTlnpMYbrhS6jiMroNoXc6hlLKPhSvUYpn063dhEIw8aIVEgbPaTc1K+AZ2kNzGzM2+Dcd7FsntKW/FWrJbQf+Xcfn/wDnQorA1CLWUeJ+D+oYfKbmONCF2sNxZm8VCtXu84Uit233FyBAQDGUTtsT6oAz2RXrpD7TW7edtRxoN1rYN/UbfwR0NRWROMFnjo0azwpskt1gfelxyQt4dlTuLD1dtb7vSdOhk+TvNL1votKACqs3tCnJ9QWG202dvRRtjnvIV4WRmpLrHChmme4SeMW7kyySM3NQebU9q7SHtj2kbLLRFstStUVixeOVnLbcZ2EcqivEJ/3y4/tMv79TvUmT/aVi6sNnUyBSW7xsYpUD18/73Pg5HyiUgjxDNUZYSwiNySjheyW8LWjTaTcRqyqXmdQznCjsx1mK0/2TbPKzq80m2OIorFRSSwZRoc65G5pC2Mrn+UQV64aZbyzksnOGTtQsfKpJrgnFxwl5wHCUu3T75j37XJY+J6tqiukJuuIV/r4B+Nal3C1oz2d3aZCz73Uqx7uytJNB4Tu1u43eMIiSJI7GSMjCtnaNpqOG8EXFywP0rb9eQexbH71b/PTVxvaJOny2HuDGGfz7D7Axp20eRZNXupQQVSFIgR59nd+5Ua4P1ZVmeGXnFcFlYN3Bm7I/bU20+PZNtNbX5Yq0+NV0SZyq7mkdVYqpI3OiUxcOaU11cLH6vpyt5KP4mpVxVp3yTS0g3ZHyrIPmrM70t0fQpodNYRAC4lUMxY7dob1fiBSceROvMkmukMXG2kQQpFLbqArsysVYlT6wbnUQqf6ppUqaMI5VAeF1cAMrdnf833NUAqE1hlN0EpcLsbtWk9Ff1jTbW++fdI3x2itGanFYRdBYikSTpA1L5RqMzeqjdSn/AJfpVG69IrO3IFmJJO0MxJ8e6nmy4SvpfQtZfcXTYP2vipPLLXmTPOnSbox7jtNTG111IdONvG7id2LMyhl27n9v6Ipp/wCxF5bRPNKqBVXLIH3NTcvPu/YOZqlpxfBlkpQk8IWWeoyJKkodmZHDgs8jZ9pTk9xp3fi2Tr3nSNFZ4xG4y7Agei3hzpqt9IuX5pBIw8xG+KcYODr5v5jHveSMU1v8CX3OkNumalLbsXiYKxQoW2q3LcrbcNWpbyQI0QdtjNuZAeyx94pfr/DtzZR9a8e5PXaI7tnzmqJNra+CH62q2vT2zXCGqrfQ+XN077d7s+0bVDMzBR7IzXh5WYAFmIHJFZmIX4BqaU1CRk3rF2d6x7sscsysVUL4nC0lbWH9lR8Q1XrQWsPj2Mfc0e768eFadK4gtgMXNu7ebwz7fwEVLbHUtAf0mmT3S9d/emarloro+CS0s/ZGMUVPo4tBPdcR/XO4rLw6CvfcR/VcOf41X8ez0P4k/ZAMUVKb7UdAT0Wkc+UXyj+9sCopq3ENmQRbWzg+Ek07H8Aq2Oitn0hfFmbEcqchiD4MrMCPrWlb6rcEbTPKRjBUzORUXi1WVjhUDH2VRifupfcyzRxq7ImDsyqupZd6703oCSm9OYqb0NqeBfYsQ72eoSw56p2TcMMBt5hfA0jxTSutjxT9jVKeHNDuL1C8cexPB5DtVz7KVTZpbYLLQnTYvAsu+KJZRCJURxE4kAIYFyq4G+k+ta7JcyiQkphNiKjtgUum4Ivl/mw30ZEptuNAuk9K2k+IRmH7VzVLU/ISVvkedE4hX5NPBcyO29GEbPufG5GFRGZ9qFvIffWx0KnDAj3MGU/ipfp/DU98jiEoNhTdvZgGz6oYA0cyaTCO6UkmQyipPecA6hH32xf3xOjUx3Gl3EZ2tBKp8jC/+FWbWjVta8HTdtaJGMIiIPJEVR91b8V6oq81YE88KSKUZQysCrKwyCPEVqtrCOP0I0T3Iir/AHUrrNLCBxTDFFZopjNRAIwfgQarjizouhn3SWxEUneUx2GP5asus1KFkoPMWBze0V1pjBJ7chOuDmULnIxtdYpO4bkrfBqMFy7ddsbfIWAkXYVRImKqjl+yXc4xvroGeFXUq6hlIwysAQR7wahWs9F9jPkorQt5xHs/YrbDWJ/yQisTw1DKimOTa5xuXdvVS3qkd64DJ4mmyThuZQ5ypVI3lLbiAyqWCMnnuCkrUwuuii8iO62uFb4742psfh/WoECdXIyKuwIjo6ldrDbhTkjDvWlaiDX6X/oDHJwtcAqOxzkjiyJFwrtz2t8Ack00zWbqzqVPYYpIVGVU7scyPCpS51de+C4zggN8mcsoZSNoOOQ503z6TqMruxtrklwgk/3eRQ+1cKz1NWLttAbZOEysbu8y4QDcAjKWO1T2OsKBl7a868QadALhFO7ZJbJJC0jBV3Ou7L7cYQdsHFL7XhbWJH3rFKjlAhd5FQ7VUALzIp2sOiS7fnNLGg+budqi7649sBkbWLWNXjiSRFZwyzQuocK+xygbA5K6IMVoIvNUk2QxM6K7lFUYRAzMV3v3ZG6rU0forsYe1IGnb+sOF+ytTi2tkjUIiqigYVUVVUfACss9Wl/BAVvwp0WRxYe7IlbvES52L8faqy4owqhVAAAwABgAeAxW2isU7JTeZMYUYrNFRATzW6MMMqsPJlUj7602ljHFnq0RNx3MERVBOO84pZRSwhbV2eqxis0UxhRRRQAUUUUAFFFFABRRRQAUUUUAFFFFAGMVmiigAooooAKKKKACiiigAooooAKKKKACiiigD//Z" alt="logo" width="150" height="200" class="d-inline-block align-text-top">
+                Bootstrap
+              </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link  btn btn-outline-success" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link btn btn-outline-success" href="#">Link</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle btn btn-outline-success" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Dropdown
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link btn btn-outline-success">Disabled</a>
+              </li>
+            </ul>
+            <div class="d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle btn btn-outline-success" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Ingresar
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="login">Iniciar Sesion</a></li>
+                    <li><a class="dropdown-item" href="login/registro.php">Registrarse</a></li>
+                    
+                  </ul> 
+            </div>
+          </div>
+        </div>
+      </nav>
+ 
+<section>
+    <div id="carouselExampleCaptions" class="carousel slide">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="https://cdn.pixabay.com/photo/2019/08/05/11/58/health-4385849_1280.jpg" height="600px"class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+                <a href=""class= "btn btn-outline-info btn-lg">Reservar cita</a> <br><br>
+              <h5>First slide label</h5>
+              <p>Some representative placeholder content for the first slide.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="https://media.istockphoto.com/id/1435555882/es/foto/una-joven-veterinaria-examinando-a-un-gatito.jpg?s=612x612&w=0&k=20&c=pFRmOZJn0YC713wDDkQ89QHXfoh6hL9gGTx5-lCSB3U=" height="600px" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Second slide label</h5>
+              <p>Some representative placeholder content for the second slide.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="https://cdn.pixabay.com/photo/2020/03/06/09/23/veterinarian-4906607_640.jpg" height="600px"class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Third slide label</h5>
+              <p>Some representative placeholder content for the third slide.</p>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+</section>
+
+
+<section>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6">
+            <center>
+                <img src="https://lh3.googleusercontent.com/p/AF1QipOJkVoGoaFSSWDWywu7vuhVir2Khn4I6b9r61Vr=s680-w680-h510" alt="">
+            </center>
+        </div>
+            <div class="col-md-6">
+                <br><br><br><br>
+                <h3>AnimalKuna esta pensado en el bienestar de sus mascotas y animalitos de granja.</h3>
+            <br><br>
+            <p style="text-align: justify;"> AnimalKuna es una clínica veterinaria comprometida con el bienestar de mascotas y animales de granja. Nuestra misión es proporcionar atención médica y servicios de alta calidad para garantizar la salud y felicidad de los animales. Contamos con un equipo de veterinarios altamente calificados y apasionados que se esfuerzan por ofrecer cuidado compasivo y soluciones efectivas para una variedad de necesidades médicas.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="our-services">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <br><br><br>
+                <h1>Nuestros Servicios</h1>
+                <br><br>
+            </div>
+        </div>
+        <div class="row">
+        <div class="col-md-3">
+            <div class="card">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+              </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card" style="width: 18rem;">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+              </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card" >
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+              </div>
+        </div>
+        <div class="col-md-3">
+                <img src="https://img.freepik.com/fotos-premium/veterinario-sonriente-sosteniendo-paciente-peludo-ojos-amables-compasivos_928211-15186.jpg?size=626&ext=jpg&ga=GA1.1.1252076076.1693427696&semt=sph" class="card-img-top" alt="...">
+
+        </div>
+        </div>
+    </div>
+
+</section>
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  </body>
+</html>
